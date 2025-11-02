@@ -1,0 +1,31 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Composer
+/vendor/
+composer.lock
+
+# Storage & Logs
+storage/logs/*.log
+storage/sessions/*
+!storage/logs/.gitkeep
+!storage/sessions/.gitkeep
+
+# Deployment backups
+deploy-*/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test files in public
+public/test-*.php
