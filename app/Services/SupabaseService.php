@@ -166,7 +166,8 @@ class SupabaseService
     public function getDevicesForLicense($licenseKey)
     {
         try {
-            $response = $this->client->get("/rest/v1/devices?license_key=eq.{$licenseKey}&order=created_at.desc");
+            // created_at may not exist, use id for ordering or no ordering
+            $response = $this->client->get("/rest/v1/devices?license_key=eq.{$licenseKey}");
             return json_decode($response->getBody(), true);
         } catch (RequestException $e) {
             throw new \Exception('Failed to fetch devices: ' . $e->getMessage());
@@ -195,7 +196,8 @@ class SupabaseService
             }
             
             $queryString = http_build_query($query);
-            $response = $this->client->get("/rest/v1/devices?{$queryString}&order=created_at.desc");
+            // created_at may not exist, remove ordering or use existing column
+            $response = $this->client->get("/rest/v1/devices?{$queryString}");
             
             return json_decode($response->getBody(), true);
         } catch (RequestException $e) {
