@@ -2,6 +2,23 @@
 
 TypeScript/Vercel/Supabaseで構築されたライセンスサーバー（API）用のPHP管理画面です。
 
+## リポジトリ管理
+
+このプロジェクトはGitHubで管理されています:
+- **リポジトリ**: https://github.com/masahirocom/license-admin
+- **ブランチ**: `develop`
+
+### デプロイ方法
+
+```bash
+# 1. 最新コードを取得
+cd /home/metamondes.com/license-admin
+git pull origin develop
+
+# 2. クイックデプロイ（public/index.phpを本番環境にコピー）
+./quick-deploy.sh
+```
+
 ## 機能
 
 - **ライセンス管理**
